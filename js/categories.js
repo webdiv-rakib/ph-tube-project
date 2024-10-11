@@ -49,7 +49,7 @@ const displayCategories2 = (categories) => {
         const button = document.createElement("button");
 
         // assign a class to the button
-        button.classList = "btn";
+        button.classList = "btn bg-red-400";
 
         // button names
         button.innerText = item.category;
@@ -59,5 +59,26 @@ const displayCategories2 = (categories) => {
     })
 
 }
+
+/**----------------------------------------------------------- */
+// loadVideos 
+const loadVideos = () => {
+    fetch('https://openapi.programming-hero.com/api/phero-tube/videos')
+        .then(res => res.json())
+        .then(data => displayVideos(data.videos))
+        .catch(error => console.log(error))
+}
+
+// displayVideos
+const displayVideos = (videos) => {
+    const videoContainer = document.getElementById("videos");
+    videos.forEach(video => {
+        console.log(video);
+    })
+}
+
+
+
 // calling function
 loadCategories2();
+loadVideos();
