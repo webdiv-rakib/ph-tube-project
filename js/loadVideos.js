@@ -7,6 +7,25 @@ const loadVideos = () => {
         .catch(error => console.log(error))
 }
 
+const cardDemo = {
+    "category_id": "1003",
+    "video_id": "aaae",
+    "thumbnail": "https://i.ibb.co/Yc4p5gD/inside-amy.jpg",
+    "title": "Inside Amy Schumer",
+    "authors": [
+        {
+            "profile_picture": "https://i.ibb.co/YD2mqH7/amy.jpg",
+            "profile_name": "Amy Schumer",
+            "verified": ""
+        }
+    ],
+    "others": {
+        "views": "3.6K",
+        "posted_date": "15147"
+    },
+    "description": "'Inside Amy Schumer' is a comedy show by the popular comedian Amy Schumer, blending sharp satire and unfiltered humor to tackle everyday issues and societal norms. With 3.6K views, the show promises a blend of hilarious sketches, thought-provoking stand-up, and candid interviews. It's a must-watch for fans of bold, edgy comedy."
+}
+
 // displayVideos
 const displayVideos = (videos) => {
     const videoContainer = document.getElementById("videos");
@@ -19,20 +38,27 @@ const displayVideos = (videos) => {
         const card = document.createElement("div");
 
         // dynamically giving class
-        card.classList = "card card-compact"
+        card.classList = "card card-compact border"
 
         // dynamically adding innerHTML to div or card
         card.innerHTML = `
-        <figure>
-            <img
+        <figure class="h-[200px]">
+            <img class = "h-full w-full object-cover"
             src=${video.thumbnail}
             alt="Shoes" />
         </figure>
-        <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+        <div class="px-2 py-2 flex gap-2">
+            <div class="">
+              <img class="w-10 h-10 rounded-full object-cover" src=${video.authors[0].profile_picture}>
+            </div>
+            <div>
+              <h2 class="text-xl font-medium">${video.title}</h2>
+              <div class="flex items-center mt-2 gap-2">
+                <p class=""><a href="">${video.authors[0].profile_name}</a></p>
+                <img class="h-5 w-5" src ="assets/verified.png" >
+              </div>
+              <p class ="mt-2">${video.others.views} views</p>
+            </div>
         </div>  
         `
 
