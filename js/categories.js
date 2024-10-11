@@ -1,6 +1,7 @@
 // console.log('categories');
 // 1. Fetch, load and show categories on html
 
+/**----------------------------------------------------- */
 // create loadCategories
 // const loadCategories = () => {
 //     // console.log('loadCategories created');
@@ -11,7 +12,7 @@
 //         .catch((error) => console.log(error))
 // };
 
-// // create DisplayCategories
+// create DisplayCategories
 // const displayCategories = (categories) => {
 //     const categoryContainer = document.getElementById("categories");
 //     // add data in html
@@ -25,10 +26,10 @@
 //         categoryContainer.appendChild(button);
 //     })
 // };
-
-
+// calling function
 // loadCategories();
 
+/**------------------------------------------------------- */
 // create loadCategories2
 const loadCategories2 = () => {
     fetch("https://openapi.programming-hero.com/api/phero-tube/categories")
@@ -36,23 +37,27 @@ const loadCategories2 = () => {
         .then(data => displayCategories2(data.categories))
         .catch(error => console.log(error))
 }
+
 // displayCategories2
 const displayCategories2 = (categories) => {
     const categoryContainer = document.getElementById("categories");
-    // to get scpecific item
+    // to get specific item
     categories.forEach(item => {
         console.log(item);
 
         // now create button dynamic
         const button = document.createElement("button");
+
         // assign a class to the button
-        button.classList = "btn"
+        button.classList = "btn";
+
         // button names
         button.innerText = item.category;
+
         // now append buttons
         categoryContainer.appendChild(button);
     })
 
 }
-
+// calling function
 loadCategories2();
