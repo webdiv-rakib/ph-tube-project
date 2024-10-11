@@ -42,10 +42,11 @@ const displayVideos = (videos) => {
 
         // dynamically adding innerHTML to div or card
         card.innerHTML = `
-        <figure class="h-[200px]">
+        <figure class="h-[200px] relative">
             <img class = "h-full w-full object-cover"
             src=${video.thumbnail}
             alt="Shoes" />
+            <span class="absolute right-2 bottom-2 bg-black rounded p-1 text-white">${video.others.posted_date}</span>
         </figure>
         <div class="px-2 py-2 flex gap-2">
             <div class="">
@@ -55,13 +56,12 @@ const displayVideos = (videos) => {
               <h2 class="text-xl font-medium">${video.title}</h2>
               <div class="flex items-center mt-2 gap-2">
                 <p class=""><a href="">${video.authors[0].profile_name}</a></p>
-                <img class="h-5 w-5" src ="assets/verified.png" >
+                ${video.authors[0].verified === true ? `<img class="h-5 w-5" src ="assets/verified.png" >` : ""}
               </div>
               <p class ="mt-2">${video.others.views} views</p>
             </div>
         </div>  
         `
-
         // append card that we have crated 
         videoContainer.appendChild(card);
     })
