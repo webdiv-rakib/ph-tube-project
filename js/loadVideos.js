@@ -20,6 +20,27 @@ console.log(getTimeString(7865));
 const displayVideos = (videos) => {
     const videoContainer = document.getElementById("videos");
     videoContainer.innerHTML = "";
+
+    // if there is nothing to show up
+    if (videos.length === 0) {
+        videoContainer.classList.remove("grid");
+        videoContainer.innerHTML = `
+        <div class = " mx-auto h-[600px] w-full flex flex-col gap-5 justify-center items-center">
+           <img src = "assets/Icon.png" />
+           <h2 class = "text-6xl font-extrabold">Oops!! Sorry, There is no content here</h2>
+        </div>
+        
+        `
+        return;
+    }
+    else{
+        videoContainer.classList = "container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10"
+    }
+
+
+
+
+
     // to get individual object from and array
     videos.forEach(video => {
         console.log(video);
