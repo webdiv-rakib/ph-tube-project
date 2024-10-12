@@ -44,7 +44,7 @@ const displayVideos = (videos) => {
     // to get individual object from and array
     videos.forEach(video => {
         console.log(video);
-        
+
         // dynamically creating div
         const card = document.createElement("div");
 
@@ -76,7 +76,9 @@ const displayVideos = (videos) => {
                 ${video.authors[0].verified === true ? `<img class="h-5 w-5" src ="assets/verified.png" >` : ""}
               </div>
               <p class ="mt-2">${video.others.views} views</p>
+              <p> <button onclick ="loadDetails('${video.video_id}')" class="btn btn-sm btn-error">Details</button> </p>
             </div>
+            
         </div>  
         `
         // append card that we have created 

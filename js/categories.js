@@ -22,9 +22,32 @@ const loadCategoriesVideos = (id) => {
         .catch(error => console.log(error))
 }
 
+const loadDetails = async (videoId) => {
+    console.log(videoId);
+    const url = `https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`;
+    const res = await fetch(url)
+    const data = await res.json()
+    displayDetails(data.video);
+}
+
+const displayDetails = (video) => {
+    console.log(video);
+    const detailsContainer = document.getElementById("modal-content")
+    detailsContainer.innerHTML = `
+    <img src="${video.thumbnail}" />
+    <p>${video.description}</p>
+    
+    `
+    //  way-1
+    // document.getElementById("showModalData").click();
+    // way-2
+    document.getElementById("customModal").showModal();
+}
+
+
 const removeActiveClass = () => {
     const buttons = document.getElementsByClassName("category-btn");
-    console.log(buttons);
+    // console.log(buttons);
     for (let btn of buttons) {
         btn.classList.remove("active");
     }
