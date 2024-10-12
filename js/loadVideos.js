@@ -44,7 +44,7 @@ const displayVideos = (videos) => {
     // to get individual object from and array
     videos.forEach(video => {
         console.log(video);
-
+        
         // dynamically creating div
         const card = document.createElement("div");
 
